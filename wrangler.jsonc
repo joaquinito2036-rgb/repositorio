@@ -1,0 +1,29 @@
+{
+  "name": "monochrome-soulseek-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-08-15",
+  "containers": [
+    {
+      "class_name": "MediaContainer",
+      "image": "./container/Dockerfile",
+      "max_instances": 1
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "MEDIA_CONTAINER",
+        "class_name": "MediaContainer"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["MediaContainer"]
+    }
+  ],
+  "vars": {
+    "CORS_ORIGINS": "*"
+  }
+}
